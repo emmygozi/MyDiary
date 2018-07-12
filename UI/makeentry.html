@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyDiary</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mobileview.css">
+    <script src="js/mobileview.js"></script>
+
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: url(images/narrative.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center; 
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="left">
+            <ul>
+                <li>
+                    <a style="font-weight: bolder;color: wheat" id="mydiary">MyDiary</a>
+                </li>
+                <li>
+                        <a style="font-weight: bolder;color: wheat" id="nav-icon1">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="myindex.html" id="myhome">Home</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <ul>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <a href="signup.html">Signup</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="entrycontent">
+
+        <div class="home">
+
+            <form action="/action_page.php">
+                <div class="formentrycontainer">
+                    <h1 class="centerheading">New Entry</h1>
+                    <p class="centerheading">what's on your mind today</p>
+                    <hr>
+
+                    <label for="title1">
+                        <b>Entry Title</b>
+                    </label>
+                    <input type="text" placeholder="Title" name="title1" required>
+
+                    <label for="message1">
+                        <b>Entry Message</b>
+                    </label>
+                    <textarea rows="4" cols="50"  placeholder="Enter Thoughts and Feelings" name="message1" required></textarea>
+
+                    <hr>
+
+                    <button type="submit" class="myregisterbtn" >Save Entry</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</body>
+
+
+<script>
+   
+        hamburger();
+      
+      </script>
+
+</html>
