@@ -1,7 +1,7 @@
 
-
+/* resolves issue with padding making boxes much bigger */
 * {
-	box-sizing: border-box;
+	box-sizing: border-box; /* Used for test purpose in MYDiary */
 }
 
 .home {
@@ -122,8 +122,8 @@ a {
 	width: 101.6%; 
 	overflow: hidden;
 	margin-left: -1%;
-	position: 
-		}
+	margin-top: -0.6%;
+	}
 
 .left{
 	background-color: #202C45;
