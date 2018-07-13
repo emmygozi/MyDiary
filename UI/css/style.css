@@ -129,16 +129,15 @@ a {
 	background-color: #202C45;
 	 float: left; 
 	 width: 80%; 
-	 height: 50px;
+	 height: 70px;
 	 padding-left: 3em;
 	}
 
 
 .right{background-color: #202C45;; 
-	height: 50px; 
+	height: 70px; 
 	width: 20%; 
 	float: left;
-	margin-left: ;
 
 	}
 
@@ -154,6 +153,8 @@ ul li{
  		display: table;
 		 vertical-align: middle;
 		 color: #ddd;
+		 padding-top: 0.7em;
+		 font-weight: bolder;
 	 }
 	 
 div.right >p >a{
@@ -178,6 +179,10 @@ div.right >p >a{
   .card > a{
 	color: black;
   }
+
+  .card > a h2 {
+	font-family: 'Dancing Script';
+}
   
   .card:hover {
 	  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
@@ -226,11 +231,14 @@ div.right >p >a{
   }
 
   .storybody {
-	font-weight: bold;
+	font-weight: bolder;
+	font-size: 1.5em;
 	margin: 2% 2% 3% 2%;
 	line-height: 1.8;
   }
 
   .centerwholestory{
 	margin: 2% 5% 0% 5%;
+	background-color:  #87a07e;
+	border-radius: 5%;
   }

@@ -26,6 +26,11 @@
           flex-direction: column;
       }
 
+      ul >li >a{
+        padding-top: 0em;
+    }
+    
+
      #myhome {
          display: none;
      }
