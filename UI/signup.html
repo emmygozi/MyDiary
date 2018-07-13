@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyDiary</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mobileview.css">
+    <script src="js/mobileview.js"></script>
+
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: url(images/storybook.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="left">
+            <ul>
+                <li>
+                    <a style="font-weight: bolder;color: wheat" id="mydiary">MyDiary</a>
+                </li>
+                <li>
+                    <a style="font-weight: bolder;color: wheat" id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" id="myhome">Home</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <ul>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <a href="signup.html">Signup</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="home">
+
+            <form action="/action_page.php">
+                <div class="formcontainer">
+                    <h1 class="centerheading">Register</h1>
+                    <hr>
+
+                    <label for="myname">
+                        <b>Name</b>
+                    </label>
+                    <input type="text" placeholder="Enter Full Name" name="myname" required>
+
+                    <label for="email1">
+                        <b>Email</b>
+                    </label>
+                    <input type="email" placeholder="Enter Email" name="email2" required>
+
+                    <label for="pass1">
+                        <b>Password</b>
+                    </label>
+                    <input type="password" placeholder="Enter Password" name="pass1" required>
+
+                    <label for="pwrd-repeat">
+                        <b>Confirm Password</b>
+                    </label>
+                    <input type="password" placeholder="Confirm Password" name="pwrd-repeat" required>
+                    <hr>
+
+                    <button type="submit" class="myregisterbtn">Register</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</body>
+
+<script>
+
+    hamburger();
+
+</script>
+
+
+</html>
