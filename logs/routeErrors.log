@@ -1,0 +1,15 @@
+{ level: 'error',
+  message: 'Unexpected token } in JSON at position 155\n      You JSON structure is badly formed!\n      Please check your input and try again.',
+  label: 'Route Error!',
+  timestamp: '2018-07-18T23:21:12.845Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'Unexpected token } in JSON at position 155\n      You JSON structure is badly formed!\n      Please check your input and try again.',
+  label: 'Route Error!',
+  timestamp: '2018-07-18T23:31:10.027Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'Unexpected token } in JSON at position 155\n      You JSON structure is badly formed!\n      Please check your input and try again.',
+  label: 'Route Error!',
+  timestamp: '2018-07-18T23:31:55.664Z',
+  [Symbol(level)]: 'error' }

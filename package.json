@@ -6,9 +6,7 @@
   "author": "emmygozi <mygitmail@yahoo.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./server/dist/index.js",
-    "build": "cross-env NODE_ENV=development babel ./server/ -d ./server/dist",
-    "heroku-postbuild": "cross-env NODE_ENV=production babel ./server/ -d ./server/dist",
+    "start": "cross-env NODE_ENV=production  babel-node ./server/index.js",
     "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./server/index.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint \"server/**/*.js\" index.js --fix",
