@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=production  babel-node ./server/index.js",
-    "build": "cross-env NODE_ENV=production babel ./server/src -d ./server/dist",
+    "build": "cross-env NODE_ENV=production babel ./server/ -d ./server/dist",
     "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./server/index.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint \"server/**/*.js\" index.js --fix",
