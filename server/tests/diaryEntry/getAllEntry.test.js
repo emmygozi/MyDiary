@@ -5,7 +5,7 @@ import app from '../../index';
 chai.use(chaiHttp);
 const { expect } = chai;
 
-
+// Tests user entries
 describe('GET /', () => {
   it('should return a success status 200', async () => {
     try {
@@ -21,3 +21,4 @@ describe('GET /', () => {
     }
   });
 });
+
