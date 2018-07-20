@@ -30,7 +30,6 @@ class Entry {
     res.send(entry);
   }
 
-
   static removeAnEntry(req, res) {
     // strict comparison is not suitable here to find out if update ID is a number
     // eslint-disable-next-line
@@ -43,27 +42,6 @@ class Entry {
 
     entry.splice(myEntryIndex, 1);
     res.send(entry);
-  }
-
-
-  static updateEntry(req, res) {
-    // eslint-disable-next-line
-   if (req.params.id != parseInt(req.params.id, 10)) return res.status(401).send('Given ID is not a number!');
-
-
-    const myEntry = entry.find(c => c.id === parseInt(req.params.id, 10));
-    if (!myEntry) return res.status(404).send('The entry with th given ID was not found!');
-
-    const { error } = validateEntry(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
-
-    /* we do not update the userid as security measure because
-       it is the CURRENT user that is making changes
-       */
-    myEntry.title = req.body.title;
-    myEntry.message = req.body.message;
-
-    res.send(myEntry);
   }
 
 

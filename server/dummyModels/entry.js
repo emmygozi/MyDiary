@@ -1,4 +1,3 @@
-
 const entry = [
   {
     id: 1,
@@ -22,4 +21,3 @@ const entry = [
 ];
 
 export default entry;
-

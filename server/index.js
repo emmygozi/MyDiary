@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(helmet());
 
+app.use('/', routes);
 
 app.use('/', routes);
 app.use(error);
