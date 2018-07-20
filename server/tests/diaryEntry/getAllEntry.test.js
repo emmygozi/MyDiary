@@ -5,6 +5,7 @@ import app from '../../index';
 chai.use(chaiHttp);
 const { expect } = chai;
 
+
 describe('GET /', () => {
   it('should return a success status 200', async () => {
     try {
