@@ -9,6 +9,5 @@ router.post('/api/v1/diary');
 router.put('/api/v1/diary/:id');
 router.delete('/api/v1/diary/:id');
 
-// router.use('/api/v1/diary', courses);
 
 export default router;
