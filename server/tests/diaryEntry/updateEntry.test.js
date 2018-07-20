@@ -22,7 +22,7 @@ describe('PUT /:ID', () => {
         .send({
           title, message, userid
         });
-    } catch (err) { throw err; }
+    } catch (err) { throw err.message; }
   };
 
   beforeEach(() => {
@@ -42,7 +42,7 @@ describe('PUT /:ID', () => {
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 
@@ -52,7 +52,7 @@ describe('PUT /:ID', () => {
       const res = await exec();
       expect(res.status).to.equal(401);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 
@@ -62,7 +62,7 @@ describe('PUT /:ID', () => {
       const res = await exec();
       expect(res.status).to.equal(404);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 
@@ -74,7 +74,7 @@ describe('PUT /:ID', () => {
       const res = await exec();
       expect(res.status).to.equal(400);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 });

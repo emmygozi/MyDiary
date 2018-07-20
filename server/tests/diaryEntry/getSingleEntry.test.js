@@ -15,7 +15,7 @@ describe('GET /:ID', () => {
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.any.keys('id', 'title');
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 
@@ -25,7 +25,7 @@ describe('GET /:ID', () => {
         .get('/api/v1/diary/a');
       expect(res.status).to.equal(400);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 
@@ -36,7 +36,7 @@ describe('GET /:ID', () => {
         .get('/api/v1/diary/50');
       expect(res.status).to.equal(404);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 });

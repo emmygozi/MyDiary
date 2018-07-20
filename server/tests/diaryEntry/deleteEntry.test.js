@@ -16,7 +16,7 @@ describe('DELETE /:ID', () => {
     try {
       return await chai.request(app)
         .delete(`/api/v1/diary/${urlId}`);
-    } catch (err) { throw err; }
+    } catch (err) { throw err.message; }
   };
 
 
@@ -30,7 +30,7 @@ describe('DELETE /:ID', () => {
       const res = await exec();
       expect(res.status).to.equal(400);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 
@@ -42,7 +42,7 @@ describe('DELETE /:ID', () => {
       const res = await exec();
       expect(res.status).to.equal(404);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 
@@ -52,7 +52,7 @@ describe('DELETE /:ID', () => {
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('array');
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 });

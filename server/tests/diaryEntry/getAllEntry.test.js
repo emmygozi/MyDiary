@@ -17,7 +17,7 @@ describe('GET /', () => {
       expect(res.body[0]).to.have.any.keys('id', 'title');
       expect(res.body[0]).to.be.an('object');
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 });

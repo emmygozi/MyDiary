@@ -21,7 +21,7 @@ describe('POST /', () => {
         .send({
           title, message, userid
         });
-    } catch (err) { throw err; }
+    } catch (err) { throw err.message; }
   };
 
   beforeEach(() => {
@@ -37,7 +37,7 @@ describe('POST /', () => {
       expect(res.body).to.be.an('array');
       expect(res.body).to.have.length.above(2);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 
@@ -48,7 +48,7 @@ describe('POST /', () => {
       const res = await exec();
       expect(res.status).to.equal(400);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 
@@ -59,7 +59,7 @@ describe('POST /', () => {
       const res = await exec();
       expect(res.status).to.equal(409);
     } catch (err) {
-      throw err;
+      throw err.message;
     }
   });
 });
