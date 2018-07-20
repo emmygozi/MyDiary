@@ -46,6 +46,7 @@ class Entry {
     res.send(entry);
   }
 
+
   static getOneEntry(req, res) {
     // eslint-disable-next-line
     if (req.params.id != parseInt(req.params.id, 10)) return res.status(400)
