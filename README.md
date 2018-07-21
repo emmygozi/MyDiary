@@ -104,6 +104,7 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 		<td>Delete an entry</td>
 	</tr>
 </table>
+
 ## Technologies
 
 * [NodeJS](https://nodejs.org/) - Runtime Environment
