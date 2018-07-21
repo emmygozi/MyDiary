@@ -10,7 +10,7 @@ describe('GET /', () => {
   it('should return a success status 200', async () => {
     try {
       const res = await chai.request(app)
-        .get('/api/v1/diary');
+        .get('/api/v1/entries');
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('array');
       expect(res.body).to.have.length.above(0);

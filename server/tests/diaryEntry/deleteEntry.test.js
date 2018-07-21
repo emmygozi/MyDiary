@@ -15,7 +15,7 @@ describe('DELETE /:ID', () => {
   const exec = async () => {
     try {
       return await chai.request(app)
-        .delete(`/api/v1/diary/${urlId}`);
+        .delete(`/api/v1/entries/${urlId}`);
     } catch (err) { throw err.message; }
   };
 

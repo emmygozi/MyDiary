@@ -10,7 +10,7 @@ describe('GET /:ID', () => {
   it('should return a success status 200', async () => {
     try {
       const res = await chai.request(app)
-        .get('/api/v1/diary/2');
+        .get('/api/v1/entries/2');
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.any.keys('id', 'title');
@@ -22,7 +22,7 @@ describe('GET /:ID', () => {
   it('should return a failure status of 400', async () => {
     try {
       const res = await chai.request(app)
-        .get('/api/v1/diary/a');
+        .get('/api/v1/entries/a');
       expect(res.status).to.equal(400);
     } catch (err) {
       throw err.message;
@@ -33,7 +33,7 @@ describe('GET /:ID', () => {
   it('should return a failure status of 404', async () => {
     try {
       const res = await chai.request(app)
-        .get('/api/v1/diary/50');
+        .get('/api/v1/entries/50');
       expect(res.status).to.equal(404);
     } catch (err) {
       throw err.message;

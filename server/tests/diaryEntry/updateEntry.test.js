@@ -18,7 +18,7 @@ describe('PUT /:ID', () => {
   const exec = async () => {
     try {
       return await chai.request(app)
-        .put(`/api/v1/diary/${urlId}`)
+        .put(`/api/v1/entries/${urlId}`)
         .send({
           title, message, userid
         });

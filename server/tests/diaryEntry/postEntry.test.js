@@ -17,7 +17,7 @@ describe('POST /', () => {
   const exec = async () => {
     try {
       return await chai.request(app)
-        .post('/api/v1/diary')
+        .post('/api/v1/entries')
         .send({
           title, message, userid
         });
