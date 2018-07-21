@@ -19,6 +19,10 @@ app.use(helmet());
 app.use('/', routes);
 app.use(error);
 
+app.use('/', routes);
+app.use(error);
+
+
 const port = process.env.PORT || 8000;
 
 app.listen(port);
