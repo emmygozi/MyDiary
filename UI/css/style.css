@@ -6,8 +6,8 @@
 
 .home {
 	margin: 10px 10px 10px 10px;
-	opacity: 0.8;
-	filter: alpha(opacity=80);
+	opacity: 0.95;
+	filter: alpha(opacity=95);
 }
 
 .content {
