@@ -17,6 +17,11 @@
             background-attachment: fixed;
             background-position: center;
         }
+        .centerheading {
+	text-align: center;
+    font-weight: bold;
+    margin-top: -4em;
+}
     </style>
 </head>
 
@@ -63,9 +68,7 @@
 
             <form action="/action_page.php">
                 <div class="formcontainer">
-                    <h1 class="centerheading">Register</h1>
-                    <hr>
-
+                    <h2>Register</h2>
                     <label for="myname">
                         <b>Name</b>
                     </label>
@@ -85,7 +88,6 @@
                         <b>Confirm Password</b>
                     </label>
                     <input type="password" placeholder="Confirm Password" name="pwrd-repeat" required>
-                    <hr>
 
                     <button type="submit" class="myregisterbtn">Register</button>
                 </div>
