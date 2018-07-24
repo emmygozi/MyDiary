@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/mobileview.css">
     <script src="js/mobileview.js"></script>
+    <script src="js/passwordvalidation.js"></script>
 
 
     <style>
@@ -17,6 +18,7 @@
             background-attachment: fixed;
             background-position: center;
         }
+    
     </style>
 </head>
 
@@ -61,15 +63,13 @@
 
         <div class="home">
 
-            <form action="/action_page.php">
+            <form action="myindex.html">
                 <div class="formcontainer">
-                    <h1 class="centerheading">Register</h1>
-                    <hr>
-
+                    <h2 style="margin-top: -4.5em;">Register</h2>
                     <label for="myname">
                         <b>Name</b>
                     </label>
-                    <input type="text" placeholder="Enter Full Name" name="myname" required>
+                    <input type="text" placeholder="Enter Full Name" name="myname"  required>
 
                     <label for="email1">
                         <b>Email</b>
@@ -79,15 +79,14 @@
                     <label for="pass1">
                         <b>Password</b>
                     </label>
-                    <input type="password" placeholder="Enter Password" name="pass1" required>
-
+                    <input type="password" placeholder="Enter Password" name="pass1" id="pas1" required>
+                    <div id="matchP"></div>
                     <label for="pwrd-repeat">
                         <b>Confirm Password</b>
                     </label>
-                    <input type="password" placeholder="Confirm Password" name="pwrd-repeat" required>
-                    <hr>
+                    <input type="password" placeholder="Confirm Password" name="pwrd-repeat" id="pas2" required>
 
-                    <button type="submit" class="myregisterbtn">Register</button>
+                    <button type="submit" id="submitid" disabled class="myregisterbtn">Register</button>
                 </div>
 
             </form>
@@ -100,6 +99,9 @@
 <script>
 
     hamburger();
+
+
+    manipulate("pas1", "pas2", "submitid", "matchP");
 
 </script>
 
