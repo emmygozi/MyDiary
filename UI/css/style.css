@@ -241,3 +241,61 @@ div.right >p >a{
 	background-color:  #87a07e;
 	border-radius: 5%;
   }
+
+  #headerContainer {
+    min-height: 450px;
+	color: #fff;
+	margin-top: -2em;
+	margin-left: -0.5em;
+}
+#headerContainer .bg-image {
+    position: absolute;
+    background: #333 url('https://cdn.pixabay.com/photo/2013/11/05/23/55/coffee-206142_960_720.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+    z-index: -1;
+    opacity: 0.8;
+}
+#headerContainer h1, h2, h3 {
+    padding-top: 100px;
+    padding-bottom: 0;
+}
+#headerContainer .content-wrap, #headerContainer-a .content-wrap {
+    padding: 0 1.5em;
+}
+
+#headerContainer-b {
+    padding:1em;
+}
+
+.btn {
+    display: inline;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 1em 2em;
+    border: 1px solid #666;
+    margin: .5em 0;
+}
+
+.btn:hover {
+    background: #eaeaea;
+    color: #333;
+}
+
+.grid {
+    text-align: center;
+}
+
+.content-wrap{
+	text-align: center;
+}
+
+#hedingTag{
+	background-color: #3D3434;
+	 margin-left: 9em;
+	 margin-right: 9em;
+}

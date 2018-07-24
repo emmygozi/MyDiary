@@ -126,4 +126,17 @@
      height: 22em;
  }
 
+ #headerContainer {
+	margin-top: -1em;
+}
+
+#hedingTag{
+	 margin-left: 0em;
+	 margin-right: 0em;
+}
+
+.btn {
+    display: block;
+}
+
 }
