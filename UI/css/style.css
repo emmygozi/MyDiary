@@ -250,7 +250,7 @@ div.right >p >a{
 }
 #headerContainer .bg-image {
     position: absolute;
-    background: #333 url('https://cdn.pixabay.com/photo/2013/11/05/23/55/coffee-206142_960_720.jpg');
+    background: #333 url('../images/coffea.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
