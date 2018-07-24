@@ -1,3 +1,4 @@
+/* eslint-disable */
 function hamburger() {
     let element = document.getElementsByTagName('span');
     let homebtn = document.getElementById('myhome');
