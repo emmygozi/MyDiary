@@ -25,15 +25,17 @@ class Entry {
     const foundEntry = entry.find(myentry =>
       (myentry.title.toLowerCase() === title.toLowerCase()));
 
-    if (foundEntry) return res.status(409).send(`An entry with title '${title}' is already in the entry options`);
+    if (foundEntry) {
+      return res.status(409).send(`An entry with title '${title}' is already in the entry options`);
+    }
     entry.push(anEntry);
     res.send(entry);
   }
 
   static removeAnEntry(req, res) {
-    // strict comparison is not suitable here to find out if update ID is a number
-    // eslint-disable-next-line
-    if (req.params.id != parseInt(req.params.id, 10)) return res.status(400).send('Given ID is not a number!');
+    if (Number(req.params.id) !== parseInt(req.params.id, 10)) {
+      return res.status(400).send('Given ID is not a number!');
+    }
 
     const myEntryIndex = entry.findIndex(c => c.id === parseInt(req.params.id, 10));
 
@@ -45,8 +47,9 @@ class Entry {
   }
 
   static updateEntry(req, res) {
-    // eslint-disable-next-line
-   if (req.params.id != parseInt(req.params.id, 10)) return res.status(401).send('Given ID is not a number!');
+    if (Number(req.params.id) !== parseInt(req.params.id, 10)) {
+      return res.status(401).send('Given ID is not a number!');
+    }
 
 
     const myEntry = entry.find(c => c.id === parseInt(req.params.id, 10));
@@ -65,9 +68,9 @@ class Entry {
   }
 
   static getOneEntry(req, res) {
-    // eslint-disable-next-line
-    if (req.params.id != parseInt(req.params.id, 10)) return res.status(400)
-      .send('Given ID is not a number!');
+    if (Number(req.params.id) !== parseInt(req.params.id, 10)) {
+      return res.status(400).send('Given ID is not a number!');
+    }
 
 
     const myEntryIndex = entry.findIndex(c => c.id === parseInt(req.params.id, 10));
