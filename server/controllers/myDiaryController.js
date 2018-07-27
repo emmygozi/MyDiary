@@ -4,6 +4,7 @@ import config from 'config';
 import validateEntry from '../helpers/validateEntry';
 
 const mydebugger = debuggerconsole('app:startup');
+mydebugger(config.get('db'));
 
 const tryConnect = {
   promiseLib: dbWaitConnect
@@ -61,6 +62,26 @@ class Entries {
     }
     res.status(200)
     .json({ status: 'successfull', message: 'Entry is sucessfully updated!' });
+  }
+
+  static async getOneEntry(req, res) {
+    if (Number(req.params.id) !== parseInt(req.params.id, 10)) {
+      return res.status(400).send('Given ID is not a number!');
+    }
+
+    const getId = req.params.id;
+
+    const getOne = await dbInstance.result(`SELECT id, title,
+     message, date_added FROM entries WHERE id = '${getId}'`);
+     
+    if (getOne.rowCount === 0) {
+      return res.status(404).send('entry does not exist');
+    }
+    const { rows } = getOne;
+    const rowIndex = rows[0];
+    
+    return res.status(200)
+    .json({ status: 'successfull', rowIndex, message: 'Sucess getting one entry!' });
   }
 }
 
