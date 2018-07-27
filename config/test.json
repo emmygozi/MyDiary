@@ -1,4 +1,4 @@
 {
     "jwtPrivateKey": "1234",
-    "db": ""
+    "db": "postgres://skorbijt:KXHDclEOqRoBd64UcxhWgE2_JGq1_zDA@stampy.db.elephantsql.com:5432/skorbijt"
 }
