@@ -1,4 +1,4 @@
-const entry = [
+/* const entry = [
   {
     id: 1,
     title: 'First entry',
@@ -21,3 +21,4 @@ const entry = [
 ];
 
 export default entry;
+ */

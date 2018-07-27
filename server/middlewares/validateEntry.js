@@ -1,4 +1,4 @@
-import Joi from 'joi';
+/* import Joi from 'joi';
 
 const validateEntry = (myentry) => {
   const schema = {
@@ -13,3 +13,4 @@ const validateEntry = (myentry) => {
 
 
 export default validateEntry;
+ */
