@@ -1,7 +1,6 @@
-import debuggerconsole from 'debug';
 import db from '../dbConnect/connect';
 
-const mydebugger = debuggerconsole('app:startup');
+db.connection();
 
 
 class ALLUSERS {
