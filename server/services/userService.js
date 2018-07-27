@@ -21,7 +21,7 @@ class ALLUSERS {
 
   static async loginUser(email) {
     try {
-      const { rows, rowCount } = await db.query(`SELECT name, email, mypassword FROM users WHERE email = '${email}'`);
+      const { rows, rowCount } = await db.query(`SELECT id, name, email FROM users WHERE email = '${email}'`);
       console.log(rows);
       if (rowCount === 1) {
         return rows;
@@ -40,7 +40,7 @@ class ALLUSERS {
       VALUES ('${name}', '${email}', '${mypassword}');`);
       console.log(rowCount);
       if (rowCount === 1) {
-        const { rows } = await db.query('SELECT name, email, date_added FROM users');
+        const { rows } = await db.query('SELECT id, name, email, date_added FROM users');
         console.log(rows);
         return rows;
       }

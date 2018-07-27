@@ -28,6 +28,15 @@ class MYENTRIES {
     }
   }
 
+  static async getTitle(id) {
+    try {
+      const { rows } = await db.query(`SELECT id, title, message, date_added FROM entries WHERE title = '${id}'`);
+      return rows;
+    } catch (error) {
+      return error;
+    }
+  }
+
   static async saveEntry(body) {
     const {
       // eslint-disable-next-line
