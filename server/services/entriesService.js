@@ -1,4 +1,4 @@
-import debuggerconsole from 'debug';
+/* import debuggerconsole from 'debug';
 import db from '../dbConnect/connect';
 
 const mydebugger = debuggerconsole('app:startup');
@@ -85,3 +85,4 @@ class MYENTRIES {
 
 
 export default MYENTRIES;
+ */

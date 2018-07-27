@@ -1,9 +1,10 @@
+import debuggerconsole from 'debug';
 import db from '../dbConnect/connect';
 
-db.connection();
+const mydebugger = debuggerconsole('app:startup');
 
 
-class ALLUSERS {
+class UserService {
   static async connection() {
     db.connect()
       .then(() => mydebugger('Connected to postgres...'))
@@ -49,4 +50,4 @@ class ALLUSERS {
   }
 }
 
-export default ALLUSERS;
+export default UserService;
