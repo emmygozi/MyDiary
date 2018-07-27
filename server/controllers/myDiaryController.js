@@ -1,11 +1,11 @@
 import validateEntry from '../middlewares/validateEntry';
+import dummyModels from '../dummyModels/entry';
 
-class Entry {
+class Entries {
   // we put underscore '_' in front of req to show that it is intentionally unused
   static getEntry(_req, res) {
-    res.send(entry);
+    res.send(dummyModels);
   }
-
 }
 
-export default Entry;
+export default Entries;
