@@ -9,10 +9,10 @@
     "start": "node ./server/dist/index.js",
     "build": "cross-env NODE_ENV=production babel ./server/ -d ./server/dist",
     "heroku-postbuild": "npm run build",
-    "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./server/services/userService.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./server/index.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint \"server/**/*.js\" index.js --fix",
-    "test": "cross-env NODE_ENV=test nyc mocha ./server/tests/**/'*.test.js' --recursive --timeout 50000 --exit",
+    "test": "cross-env NODE_ENV=test nyc mocha ./server/tests/**/'*.test.js' --recursive --timeout 100000 --exit",
     "test:watch": "npm test --watch"
   },
   "dependencies": {
@@ -34,8 +34,10 @@
     "express": "^4.16.3",
     "helmet": "^3.12.1",
     "joi": "^13.4.0",
-    "pg": "^7.4.3",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
     "morgan": "^1.9.0",
+    "pg": "^7.4.3",
     "winston": "^3.0.0"
   },
   "devDependencies": {
