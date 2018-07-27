@@ -75,7 +75,8 @@ class Entries {
      message, date_added FROM entries WHERE id = '${getId}'`);
      
     if (getOne.rowCount === 0) {
-      return res.status(404).send('entry does not exist');
+      return res.status(404)
+      .json({ status: 'Failed', message: 'Given ID does not exist' });
     }
     const { rows } = getOne;
     const rowIndex = rows[0];
@@ -83,6 +84,24 @@ class Entries {
     return res.status(200)
     .json({ status: 'successfull', rowIndex, message: 'Sucess getting one entry!' });
   }
+
+  static async removeAnEntry(req, res) {
+    if (Number(req.params.id) !== parseInt(req.params.id, 10)) {
+      return res.status(400).send('Given ID is not a number!');
+    }
+
+    const deleteId = req.params.id;
+
+
+    const deleted = await dbInstance.result(`DELETE FROM entries WHERE id = '${deleteId}'`);
+    if (deleted.rowCount === 0) {
+      return res.status(404)
+      .json({ status: 'Failed', message: 'Given ID does not exist' });
+    }
+    return res.status(200)
+    .json({ status: 'successfull', message: 'Entry is deleted!' });
+  }
+
 }
 
 export default Entries;
