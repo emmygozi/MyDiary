@@ -18,3 +18,13 @@
   label: 'Route Error!',
   timestamp: '2018-07-19T07:33:41.634Z',
   [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'entry is not defined\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-07-27T19:19:55.484Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'entry is not defined\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-07-27T19:22:44.947Z',
+  [Symbol(level)]: 'error' }
