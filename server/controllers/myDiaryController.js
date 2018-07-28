@@ -45,7 +45,7 @@ class Entries {
 
   static async updateEntry(req, res) {
     if (Number(req.params.id) !== parseInt(req.params.id, 10)) {
-      return res.status(401).send('Given ID is not a number!');
+      return res.status(401).json({ status: 'Failed', message: 'Given ID is not a number' });
     }
 
     const { error } = validateEntry(req.body);
@@ -73,7 +73,7 @@ class Entries {
 
   static async getOneEntry(req, res) {
     if (Number(req.params.id) !== parseInt(req.params.id, 10)) {
-      return res.status(400).send('Given ID is not a number!');
+      return res.status(400).json({ status: 'Failed', message: 'Given ID is not a number' });
     }
 
     // my decodedUser id doesn't work from my Auth
@@ -98,7 +98,7 @@ class Entries {
 
   static async removeAnEntry(req, res) {
     if (Number(req.params.id) !== parseInt(req.params.id, 10)) {
-      return res.status(400).send('Given ID is not a number!');
+      return res.status(400).json({ status: 'Failed', message: 'Given ID is not a number' });
     }
 
     // my decodedUser id doesn't work from my Auth

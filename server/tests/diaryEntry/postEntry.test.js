@@ -1,5 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import genrateAuthToken from '../../helpers/generateAuthToken';
 import app from '../../index';
 
 chai.use(chaiHttp);
@@ -12,11 +13,13 @@ describe('POST /', () => {
   // test.
   let title;
   let message;
+  const uniqueId = 40;
 
   const exec = async () => {
     try {
       return await chai.request(app)
         .post('/api/v1/entries')
+        .set('x-auth-token', genrateAuthToken(uniqueId))
         .send({
           title, message
         });

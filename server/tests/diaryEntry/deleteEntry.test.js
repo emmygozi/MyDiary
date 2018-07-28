@@ -1,5 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import genrateAuthToken from '../../helpers/generateAuthToken';
 import app from '../../index';
 
 chai.use(chaiHttp);
@@ -11,11 +12,13 @@ describe('DELETE /:ID', () => {
   // one parameter that clearly aligns with the name of the
   // test.
   let urlId;
+  const uniqueId = 40;
 
   const exec = async () => {
     try {
       return await chai.request(app)
-        .delete(`/api/v1/entries/${urlId}`);
+        .delete(`/api/v1/entries/${urlId}`)
+        .set('x-auth-token', genrateAuthToken(uniqueId));
     } catch (err) { throw err.message; }
   };
 
