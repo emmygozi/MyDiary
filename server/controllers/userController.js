@@ -47,15 +47,13 @@ class Users {
 
       const { rowCount } = await dbInstance.result(`INSERT INTO users (name, email, mypassword)
       VALUES ('${name2}', '${email2}', '${mypassword2}');`);
-      console.log(rowCount);
       if (rowCount === 1) {
         const { rows } = await dbInstance.result('SELECT id, name, email, date_added FROM users');
-        console.log(rows);
         const token = generateAuthToken(rows[rows.length - 1].id);
         res.header('x-auth-token', token).send(_.pick(anEntry, ['name', 'email'])); // assign pick to a const
       }
     } catch (err) {
-      throw err.message;
+      mydebugger(err.message);
     }
   }
 
@@ -70,14 +68,13 @@ class Users {
 
     try {
       const { rows, rowCount } = await dbInstance.result(`SELECT id, name, email, mypassword FROM users WHERE email = '${email}'`);
-      console.log(rows);
+
       if (rowCount === 0) {
         return res.status(400).send('Invalid email or password');
       }
 
       const foundPassword = rows[0].mypassword;
 
-      console.log(foundPassword);
       const validPassword = await bcrypt.compare(mypassword, foundPassword);
       if (!validPassword) return res.status(400).send('Invalid email or password');
 
