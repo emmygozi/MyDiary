@@ -39,21 +39,17 @@ class Users {
     if (foundEntry) {
       return res.status(409).send({ message: 'User already registered' });
     }
-    try {
-      const salt = await bcrypt.genSalt(10);
-      anEntry.mypassword = await bcrypt.hash(anEntry.mypassword, salt);
+    const salt = await bcrypt.genSalt(10);
+    anEntry.mypassword = await bcrypt.hash(anEntry.mypassword, salt);
 
-      const { name2, email2, mypassword2 } = anEntry;
+    const { name2, email2, mypassword2 } = anEntry;
 
-      const { rowCount } = await dbInstance.result(`INSERT INTO users (name, email, mypassword)
+    const { rowCount } = await dbInstance.result(`INSERT INTO users (name, email, mypassword)
       VALUES ('${name2}', '${email2}', '${mypassword2}');`);
-      if (rowCount === 1) {
-        const { rows } = await dbInstance.result('SELECT id, name, email, date_added FROM users');
-        const token = generateAuthToken(rows[rows.length - 1].id);
-        res.header('x-auth-token', token).send(_.pick(anEntry, ['name', 'email'])); // assign pick to a const
-      }
-    } catch (err) {
-      mydebugger(err.message);
+    if (rowCount === 1) {
+      const { rows } = await dbInstance.result('SELECT id, name, email, date_added FROM users');
+      const token = generateAuthToken(rows[rows.length - 1].id);
+      res.header('x-auth-token', token).send(_.pick(anEntry, ['name', 'email'])); // assign pick to a const
     }
   }
 
@@ -65,23 +61,20 @@ class Users {
       email, mypassword
     } = req.body;
 
+    const { rows, rowCount } = await dbInstance.result(`SELECT id, name, email, mypassword FROM users WHERE email = '${email}'`);
 
-    try {
-      const { rows, rowCount } = await dbInstance.result(`SELECT id, name, email, mypassword FROM users WHERE email = '${email}'`);
+    if (rowCount === 0) {
+      return res.status(400).send('Invalid email or password');
+    }
 
-      if (rowCount === 0) {
-        return res.status(400).send('Invalid email or password');
-      }
+    const foundPassword = rows[0].mypassword;
 
-      const foundPassword = rows[0].mypassword;
+    const validPassword = await bcrypt.compare(mypassword, foundPassword);
+    if (!validPassword) return res.status(400).send('Invalid email or password');
 
-      const validPassword = await bcrypt.compare(mypassword, foundPassword);
-      if (!validPassword) return res.status(400).send('Invalid email or password');
+    const token = generateAuthToken(rows[0].id);
 
-      const token = generateAuthToken(rows[0].id);
-
-      res.send(token);
-    } catch (err) { mydebugger(err.message); }
+    res.send(token);
   }
 }
 
