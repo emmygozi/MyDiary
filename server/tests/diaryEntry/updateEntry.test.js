@@ -1,5 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import genrateAuthToken from '../../helpers/generateAuthToken';
 import app from '../../index';
 
 chai.use(chaiHttp);
@@ -13,11 +14,13 @@ describe('PUT /:ID', () => {
   let title;
   let message;
   let urlId;
+  const uniqueId = 40;
 
   const exec = async () => {
     try {
       return await chai.request(app)
         .put(`/api/v1/entries/${urlId}`)
+        .set('x-auth-token', genrateAuthToken(uniqueId))
         .send({
           title, message
         });
@@ -35,7 +38,7 @@ describe('PUT /:ID', () => {
 
   it('should return a success status 200', async () => {
     try {
-      urlId = 15;
+      urlId = 50;
       const res = await exec();
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
