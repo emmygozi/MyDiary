@@ -79,6 +79,16 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 		<th>FUNCTIONALITY</th>
 	</tr>
 	<tr>
+		<td>POST /</td>
+		<td>/api/v1/auth/signup</td> 
+		<td>User signup</td>
+	</tr>
+	<tr>
+		<td>POST /</td>
+		<td>/api/v1/auth/login</td> 
+		<td>User login</td>
+	</tr>
+	<tr>
 		<td>GET /</td>
 		<td>/api/v1/entries/</td> 
 		<td>Fetch all entries</td>
