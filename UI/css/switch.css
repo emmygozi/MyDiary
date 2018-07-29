@@ -5,7 +5,7 @@
     color: #FFFFFF;
     text-align: center;
     font-size: em;
-    padding: 2px;
+    padding: 5px;
     width: 6em;
     transition: all 0.5s;
     cursor: pointer;
@@ -39,7 +39,7 @@
    
 
   #clients {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Eczar', serif;
     border-collapse: collapse;
     width: 90%;
     margin: 1em 5% 0% 5%;
