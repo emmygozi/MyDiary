@@ -1,6 +1,6 @@
 import express from 'express';
-import diary from '../controllers/myDiaryController';
-import myUsers from '../controllers/userController';
+import diary from '../controllers/Entries';
+import myUsers from '../controllers/User';
 import Auth from '../middlewares/Auth';
 
 

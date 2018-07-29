@@ -18,7 +18,7 @@ const promisedConnection = require('pg-promise')(tryConnect);
 
 const dbInstance = promisedConnection(config.get('db'));
 
-class Users {
+class User {
   static async signup(req, res) {
     const { error } = validateUserSignup(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -78,4 +78,4 @@ class Users {
   }
 }
 
-export default Users;
+export default User;
