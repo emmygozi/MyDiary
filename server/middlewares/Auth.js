@@ -18,7 +18,7 @@ class Auth {
 
     try {
       const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
-      req.decodedUser = decoded; // if token is successful, we would have req.user object.
+      req.decodeUser = decoded; // if token is successful, we would have req.decodedUser object.
       next();
     } catch (ex) {
       res.status(400).json({ status: 'Failed', message: 'Invalid token!' });

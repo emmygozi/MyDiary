@@ -54,7 +54,7 @@ class Entries {
       title, message
     } = req.body;
 
-    // my decodedUser id doesn't work from my Auth
+    // my decodedUser id doesn't work from my Auth now
     const token = req.header('x-auth-token');
     const myId = jwt.verify(token, config.get('jwtPrivateKey'));
 
