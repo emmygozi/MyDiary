@@ -181,6 +181,7 @@ div.right >p >a{
 
   .card > a h2 {
 	font-family: 'Dancing Script';
+	margin-top: -3em;
 }
   
   .card:hover {
@@ -213,6 +214,7 @@ div.right >p >a{
 
   .about > h2{
 	text-shadow: 2px 2px grey;
+	margin-top: -3em;
   }
   
   
@@ -298,4 +300,6 @@ div.right >p >a{
 	background-color: #3D3434;
 	 margin-left: 9em;
 	 margin-right: 9em;
+	 padding: 2em;
+	 opacity: 0.8;
 }

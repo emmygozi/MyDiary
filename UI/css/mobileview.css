@@ -112,6 +112,10 @@
      width: 100%;
      margin-top: 1em;
  }
+ .card > a h2 {
+	font-family: 'Dancing Script';
+	margin-top: -0.2em;
+}
 
  .card:hover {
     box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
