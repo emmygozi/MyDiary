@@ -35,7 +35,6 @@ class User {
     const singleUser = await dbInstance.result('SELECT name, email, date_added FROM users');
     const foundEntry = singleUser.rows.find(myentry =>
       (myentry.email.toLowerCase() === email.toLowerCase()));
-    console.log(foundEntry);
 
     if (foundEntry) {
       return res.status(409).send({ message: 'User already registered' });
@@ -43,7 +42,6 @@ class User {
     const salt = await bcrypt.genSalt(10);
     const mypassword2 = await bcrypt.hash(anEntry.mypassword, salt);
 
-    console.log(mypassword2);
 
     const { rowCount } = await dbInstance.result(`INSERT INTO users (name, email, mypassword)
       VALUES ('${name}', '${email}', '${mypassword2}')`);
