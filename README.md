@@ -7,7 +7,7 @@ MyDiary is an online journal where users can pen down their thoughts and feeling
 Template hosted at https://emmygozi.github.io/MyDiary/UI/
 
 ## API 
-API is deployed at  https://immense-river-73014.herokuapp.com/api/v1/entries
+API is deployed at  https://mysterious-hamlet-72841.herokuapp.com/api/v1/entries
 
 ## Table of Contents
 
@@ -77,6 +77,16 @@ You can run `npm run start:dev or yarn start:dev` in development to use [Nodemon
 		<th>HTTP VERB</th>
 		<th>ENDPOINT</th>
 		<th>FUNCTIONALITY</th>
+	</tr>
+	<tr>
+		<td>POST /</td>
+		<td>/api/v1/auth/signup</td> 
+		<td>User signup</td>
+	</tr>
+	<tr>
+		<td>POST /</td>
+		<td>/api/v1/auth/login</td> 
+		<td>User login</td>
 	</tr>
 	<tr>
 		<td>GET /</td>

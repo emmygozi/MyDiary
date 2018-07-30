@@ -18,7 +18,7 @@ const promisedConnection = require('pg-promise')(tryConnect);
 
 const dbInstance = promisedConnection(config.get('db'));
 
-class Users {
+class User {
   static async signup(req, res) {
     const { error } = validateUserSignup(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -35,17 +35,18 @@ class Users {
     const singleUser = await dbInstance.result('SELECT name, email, date_added FROM users');
     const foundEntry = singleUser.rows.find(myentry =>
       (myentry.email.toLowerCase() === email.toLowerCase()));
+    console.log(foundEntry);
 
     if (foundEntry) {
       return res.status(409).send({ message: 'User already registered' });
     }
     const salt = await bcrypt.genSalt(10);
-    anEntry.mypassword = await bcrypt.hash(anEntry.mypassword, salt);
+    const mypassword2 = await bcrypt.hash(anEntry.mypassword, salt);
 
-    const { name2, email2, mypassword2 } = anEntry;
+    console.log(mypassword2);
 
     const { rowCount } = await dbInstance.result(`INSERT INTO users (name, email, mypassword)
-      VALUES ('${name2}', '${email2}', '${mypassword2}');`);
+      VALUES ('${name}', '${email}', '${mypassword2}')`);
     if (rowCount === 1) {
       const { rows } = await dbInstance.result('SELECT id, name, email, date_added FROM users');
       const token = generateAuthToken(rows[rows.length - 1].id);
@@ -78,4 +79,4 @@ class Users {
   }
 }
 
-export default Users;
+export default User;
