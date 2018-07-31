@@ -36,11 +36,11 @@ describe('PUT /:ID', () => {
     urlId = 2;
   });
 
-  it('should return a success status 200', async () => {
+  it('should return a 403 failed response', async () => {
     try {
       urlId = 50;
       const res = await exec();
-      expect(res.status).to.equal(200);
+      expect(res.status).to.equal(403);
       expect(res.body).to.be.an('object');
     } catch (err) {
       throw err.message;
@@ -68,12 +68,12 @@ describe('PUT /:ID', () => {
   });
 
 
-  it('should return a failure status for wrong string entry 400', async () => {
+  it('should return a failure status for wrong string entry 404', async () => {
     try {
       title = 'a';
 
       const res = await exec();
-      expect(res.status).to.equal(400);
+      expect(res.status).to.equal(404);
     } catch (err) {
       throw err.message;
     }

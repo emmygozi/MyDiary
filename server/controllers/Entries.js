@@ -56,6 +56,7 @@ class Entries {
     }
 
     const savedTime = new Date(canUpdate[0].date_added);
+
     savedTime.setHours(savedTime.getHours() + 24);
     if (date >= savedTime) {
       return res.status(403).json({ status: 'failed', message: 'cannot update diary entry after 24 hours' });
