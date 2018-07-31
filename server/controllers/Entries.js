@@ -1,4 +1,3 @@
-import jwt from 'jsonwebtoken';
 import dbWaitConnect from 'bluebird';
 import debuggerconsole from 'debug';
 import config from 'config';
@@ -17,11 +16,10 @@ const dbInstance = promisedConnection(config.get('db'));
 class Entries {
   // we put underscore '_' in front of req to show that it is intentionally unused
   static async getEntry(req, res) {
-    // my decodedUser id doesn't work from my Auth
-    const token = req.header('x-auth-token');
-    const myId = jwt.verify(token, config.get('jwtPrivateKey'));
+    console.log(req.decodeUser.id);
+    const myId = req.decodeUser.id;
 
-    const viewAll = await dbInstance.any(`SELECT id, title, message, date_added FROM entries WHERE user_id = '${myId.id}'`);
+    const viewAll = await dbInstance.any(`SELECT id, title, message, date_added FROM entries WHERE user_id = '${myId}'`);
     res.status(200).json({ status: 'successfull', viewAll, message: 'Retrieved ALL Entries' });
   }
 
@@ -32,13 +30,11 @@ class Entries {
       title, message,
     } = req.body;
 
-    // my decodedUser id doesn't work from my Auth middleware
-    const token = req.header('x-auth-token');
-    const myId = jwt.verify(token, config.get('jwtPrivateKey'));
+    const myId = req.decodeUser.id;
 
 
     await dbInstance.result(`INSERT INTO entries (title, message, user_id)
-    VALUES ('${title}', '${message}', '${myId.id}') `);
+    VALUES ('${title}', '${message}', '${myId}') `);
 
     res.status(201).json({ status: 'success', message: 'Saved your entry' });
   }
@@ -48,20 +44,33 @@ class Entries {
       return res.status(401).json({ status: 'Failed', message: 'Given ID is not a number' });
     }
 
+    const date = new Date();
+    const myId = req.decodeUser.id;
+    const myUpdateId = req.params.id;
+
+    const canUpdate = await dbInstance.any(`SELECT date_added FROM entries
+    WHERE user_id = '${myId}' AND id = ${myUpdateId}`);
+
+    if (canUpdate < 1) {
+      return res.status(404).json({ status: 'Failed', message: 'Given ID does not exist' });
+    }
+
+    const savedTime = new Date(canUpdate[0].date_added);
+
+    savedTime.setHours(savedTime.getHours() + 24);
+    if (date >= savedTime) {
+      return res.status(403).json({ status: 'failed', message: 'cannot update diary entry after 24 hours' });
+    }
+
+
     const { error } = validateEntry(req.body);
     if (error) return res.status(400).send(error.details[0].message);
     const {
       title, message
     } = req.body;
 
-    // my decodedUser id doesn't work from my Auth now
-    const token = req.header('x-auth-token');
-    const myId = jwt.verify(token, config.get('jwtPrivateKey'));
-
-    const myUpdateId = req.params.id;
-
     const updated = await dbInstance.result(`UPDATE entries SET title = '${title}', message = '${message}'
-    WHERE user_id = '${myId.id}' AND id = ${myUpdateId}`);
+    WHERE user_id = '${myId}' AND id = ${myUpdateId}`);
 
     if (updated.rowCount === 0) {
       return res.status(404)
@@ -76,14 +85,11 @@ class Entries {
       return res.status(400).json({ status: 'Failed', message: 'Given ID is not a number' });
     }
 
-    // my decodedUser id doesn't work from my Auth
-    const token = req.header('x-auth-token');
-    const myId = jwt.verify(token, config.get('jwtPrivateKey'));
-
+    const myId = req.decodeUser.id;
     const getId = req.params.id;
 
     const getOne = await dbInstance.result(`SELECT id, title,
-     message, date_added FROM entries WHERE id = '${getId}'  AND user_id = '${myId.id}'`);
+     message, date_added FROM entries WHERE id = '${getId}'  AND user_id = '${myId}'`);
 
     if (getOne.rowCount === 0) {
       return res.status(404)
@@ -101,14 +107,11 @@ class Entries {
       return res.status(400).json({ status: 'Failed', message: 'Given ID is not a number' });
     }
 
-    // my decodedUser id doesn't work from my Auth
-    const token = req.header('x-auth-token');
-    const myId = jwt.verify(token, config.get('jwtPrivateKey'));
-
+    const myId = req.decodeUser.id;
     const deleteId = req.params.id;
 
     const deleted = await dbInstance.result(`DELETE FROM entries
-     WHERE id = '${deleteId}'  AND user_id = '${myId.id}'`);
+     WHERE id = '${deleteId}'  AND user_id = '${myId}'`);
     if (deleted.rowCount === 0) {
       return res.status(404)
         .json({ status: 'Failed', message: 'Given ID does not exist' });
