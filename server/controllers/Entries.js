@@ -44,14 +44,29 @@ class Entries {
       return res.status(401).json({ status: 'Failed', message: 'Given ID is not a number' });
     }
 
+    const date = new Date();
+    const myId = req.decodeUser.id;
+    const myUpdateId = req.params.id;
+
+    const canUpdate = await dbInstance.any(`SELECT date_added FROM entries
+    WHERE user_id = '${myId}' AND id = ${myUpdateId}`);
+
+    if (canUpdate < 1) {
+      return res.status(404).json({ status: 'Failed', message: 'Given ID does not exist' });
+    }
+
+    const savedTime = new Date(canUpdate[0].date_added);
+    savedTime.setHours(savedTime.getHours() + 24);
+    if (date >= savedTime) {
+      return res.status(403).json({ status: 'failed', message: 'cannot update diary entry after 24 hours' });
+    }
+
+
     const { error } = validateEntry(req.body);
     if (error) return res.status(400).send(error.details[0].message);
     const {
       title, message
     } = req.body;
-
-    const myId = req.decodeUser.id;
-    const myUpdateId = req.params.id;
 
     const updated = await dbInstance.result(`UPDATE entries SET title = '${title}', message = '${message}'
     WHERE user_id = '${myId}' AND id = ${myUpdateId}`);
