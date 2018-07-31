@@ -2,6 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
+import cors from 'cors';
 import routes from './routes/index';
 import error from './middlewares/routeErrors';
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(helmet());
+app.use(cors());
 
 app.use('/api/v1', routes);
 app.use(error);
