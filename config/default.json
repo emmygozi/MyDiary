@@ -1,5 +1,5 @@
 {
     "name": "MyDiary",
     "jwtPrivateKey": "",
-    "db": "postgres://njyznnfe:MHaAwjWzPTtdAmC-atAhspPapcpOAimI@stampy.db.elephantsql.com:5432/njyznnfe"
+    "db": "postgres://skorbijt:KXHDclEOqRoBd64UcxhWgE2_JGq1_zDA@stampy.db.elephantsql.com:5432/skorbijt"
 }
