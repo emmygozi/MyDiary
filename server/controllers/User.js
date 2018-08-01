@@ -67,6 +67,7 @@ class User {
     }
 
     const foundPassword = rows[0].mypassword;
+    console.log(rows[0].id);
 
     const validPassword = await bcrypt.compare(mypassword, foundPassword);
     if (!validPassword) return res.status(400).send('Invalid email or password');
