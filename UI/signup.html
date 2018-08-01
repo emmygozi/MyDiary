@@ -62,7 +62,7 @@
 
             <form action="myindex.html">
                 <div class="formcontainer">
-                    <h2 style="margin-top: -4.5em;">Register</h2>
+                    <h2 style="margin-top: -4.5em;" id="getUser">Register</h2>
                     <label for="myname">
                         <b>Name</b>
                     </label>
@@ -99,6 +99,41 @@
 
 
     manipulate("pas1", "pas2", "submitid", "matchP");
+
+    document.getElementById('getUser').addEventListener('click', signup);
+    
+    function signup() {
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTExLCJpYXQiOjE1MzMwNzMxMDksImV4cCI6MTUzMzE1OTUwOX0.ZtUUwfKBjw6bWqozZn3qqburUK_YfkO6f0ivak2lFCU';
+
+            let headers = new Headers();
+            fetch('https://mysterious-hamlet-72841.herokuapp.com/api/v1/auth/signup', {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache",
+                headers: {
+        
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'x-auth-token': token
+                },
+               body: JSON.stringify({name: 'name1', email: 'email@fetch2.com', mypassword: '10293847'})
+            })
+           .then(response => response.json())
+           .then(result => {
+               console.log(result);
+               var req = new XMLHttpRequest();
+req.open('GET', document.location, false);
+req.send(null);
+var headers2 = req.getAllResponseHeaders().toLowerCase();
+alert(headers2);
+               result.viewAll.forEach(viewAll => {
+                //document.getElementById('showup').innerHTML += `${recipe.id} ${recipe.name}<br> ${recipe.description}<br><br>`;
+                //document.getElementById('cjange').innerHTML += `${viewAll.title}<br>`;
+ });
+           })
+            .catch((err) => console.log(err))
+        }
+
+
 
 </script>
 

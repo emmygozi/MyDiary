@@ -79,7 +79,7 @@
 
     <table id="clients">
         <tr>
-            <th>Name</th>
+            <th id="cjange">Name</th>
             <th>Entry Title</th>
             <th>Edit Entry</th>
         </tr>
@@ -220,12 +220,12 @@
 
 <script>
 
-   // hamburger();
+   hamburger();
 
-document.getElementById('getText').addEventListener('click', getEntries);
+document.getElementById('getText').addEventListener('click', deleteEntry);
     
     function getEntries() {
-            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTE3LCJpYXQiOjE1MzI5MDkxMzUsImV4cCI6MTUzMjk5NTUzNX0.x7HTfVmiMrsAYtGf5W2e_hv2EuEB7X1l0iUM5ZV6ihA';
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTExLCJpYXQiOjE1MzMwNzMxMDksImV4cCI6MTUzMzE1OTUwOX0.ZtUUwfKBjw6bWqozZn3qqburUK_YfkO6f0ivak2lFCU';
 
             let headers = new Headers();
             fetch('https://mysterious-hamlet-72841.herokuapp.com/api/v1/entries', {
@@ -233,7 +233,7 @@ document.getElementById('getText').addEventListener('click', getEntries);
                 mode: "cors",
                 cache: "no-cache",
                 headers: {
-                    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-auth-Token',
+        
                     'Content-Type': 'application/json; charset=utf-8',
                     'x-auth-token': token
                 },
@@ -242,13 +242,112 @@ document.getElementById('getText').addEventListener('click', getEntries);
            .then(response => response.json())
            .then(result => {
                console.log(result);
-               result.forEach(result => {
+               result.viewAll.forEach(viewAll => {
                 //document.getElementById('showup').innerHTML += `${recipe.id} ${recipe.name}<br> ${recipe.description}<br><br>`;
-                //document.getElementById('showup2').innerHTML += `${recipe.description}<br>`;
+                document.getElementById('cjange').innerHTML += `${viewAll.title}<br>`;
  });
            })
             .catch((err) => console.log(err))
         }
+
+        function postEntries() {
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTExLCJpYXQiOjE1MzMwNzMxMDksImV4cCI6MTUzMzE1OTUwOX0.ZtUUwfKBjw6bWqozZn3qqburUK_YfkO6f0ivak2lFCU';
+
+            let headers = new Headers();
+            fetch('https://mysterious-hamlet-72841.herokuapp.com/api/v1/entries', {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache",
+                headers: {
+        
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'x-auth-token': token
+                },
+               body: JSON.stringify({title: 'titleposttest', message: 'bodymessagetest'})
+            })
+           .then(response => response.json())
+           .then(result => {
+               console.log(result);
+               result.forEach(result => {
+                //document.getElementById('showup').innerHTML += `${recipe.id} ${recipe.name}<br> ${recipe.description}<br><br>`;
+                //document.getElementById('cjange').innerHTML += `${viewAll.title}<br>`;
+ });
+           })
+            .catch((err) => console.log(err))
+        }
+
+        function updateEntry() {
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTExLCJpYXQiOjE1MzMwNzMxMDksImV4cCI6MTUzMzE1OTUwOX0.ZtUUwfKBjw6bWqozZn3qqburUK_YfkO6f0ivak2lFCU';
+
+            let headers = new Headers();
+            fetch('https://mysterious-hamlet-72841.herokuapp.com/api/v1/entries/101', {
+                method: "PUT",
+                mode: "cors",
+                cache: "no-cache",
+                headers: {
+        
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'x-auth-token': token
+                },
+               body: JSON.stringify({title: 'titleposttestupdate', message: 'bodymessagetestupdate'})
+            })
+           .then(response => response.json())
+           .then(result => {
+               console.log(result);
+               
+           })
+            .catch((err) => console.log(err))
+        }
+
+function getOneEntry() {
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTExLCJpYXQiOjE1MzMwNzMxMDksImV4cCI6MTUzMzE1OTUwOX0.ZtUUwfKBjw6bWqozZn3qqburUK_YfkO6f0ivak2lFCU';
+
+            let headers = new Headers();
+            fetch('https://mysterious-hamlet-72841.herokuapp.com/api/v1/entries/101', {
+                method: "GET",
+                mode: "cors",
+                cache: "no-cache",
+                headers: {
+        
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'x-auth-token': token
+                },
+
+            })
+           .then(response => response.json())
+           .then(result => {
+               console.log(result);
+               console.log(result.rowIndex);
+           })
+            .catch((err) => console.log(err))
+        }
+
+
+function deleteEntry() {
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTExLCJpYXQiOjE1MzMwNzMxMDksImV4cCI6MTUzMzE1OTUwOX0.ZtUUwfKBjw6bWqozZn3qqburUK_YfkO6f0ivak2lFCU';
+
+            let headers = new Headers();
+            fetch('https://mysterious-hamlet-72841.herokuapp.com/api/v1/entries/101', {
+                method: "DELETE",
+                mode: "cors",
+                cache: "no-cache",
+                headers: {
+        
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'x-auth-token': token
+                },
+
+            })
+           .then(response => response.json())
+           .then(result => {
+               console.log(result);
+               
+           })
+            .catch((err) => console.log(err))
+        }
+
+
+
 
 </script>
 
