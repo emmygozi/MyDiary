@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import routes from './routes/index';
 import error from './middlewares/routeErrors';
+import frontEnd from './routes/frontEnd/index';
 
 
 const app = express();
@@ -18,6 +19,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(helmet());
 app.use(cors());
 
+app.use('/', frontEnd.css);
+app.use('/', frontEnd.js);
+app.use('/', frontEnd.img);
+app.use('/', frontEnd.html);
 app.use('/api/v1', routes);
 app.use(error);
 

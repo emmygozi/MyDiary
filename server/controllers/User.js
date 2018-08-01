@@ -48,7 +48,9 @@ class User {
     if (rowCount === 1) {
       const { rows } = await dbInstance.result('SELECT id, name, email, date_added FROM users');
       const token = generateAuthToken(rows[rows.length - 1].id);
-      res.header('x-auth-token', token).send(_.pick(anEntry, ['name', 'email'])); // assign pick to a const
+      anEntry.token = token;
+      anEntry.status = 'successful';
+      res.header('x-auth-token', token).send(_.pick(anEntry, ['name', 'email', 'token', 'status'])); // assign pick to a const
     }
   }
 
@@ -74,7 +76,7 @@ class User {
 
     const token = generateAuthToken(rows[0].id);
 
-    res.send(token);
+    res.send({ token, status: 'successful' });
   }
 }
 
