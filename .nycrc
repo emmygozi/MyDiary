@@ -10,7 +10,8 @@
     "**/*.test.js",
     "**/__tests__/**",
     "**/node_modules/**",
-    "./server/middlewares/routeErrors.js"
+    "./server/middlewares/routeErrors.js",
+    "./UI"
   ],
   "watermarks": {
       "lines": [75, 75],

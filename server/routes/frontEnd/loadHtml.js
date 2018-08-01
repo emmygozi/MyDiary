@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
   res.sendFile('/index.html', { root });
 });
 
+router.get('/index', (req, res) => {
+  res.sendFile('/index.html', { root });
+});
+
 router.get('/signup', (req, res) => {
   res.sendFile('/signup.html', { root });
 });
