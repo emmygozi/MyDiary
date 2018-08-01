@@ -76,7 +76,7 @@ class User {
 
     const token = generateAuthToken(rows[0].id);
 
-    res.send(token);
+    res.send({ token, status: 'successful' });
   }
 }
 
