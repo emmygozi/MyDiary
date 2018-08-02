@@ -42,7 +42,7 @@ class Entries {
   static async updateEntry(req, res) {
     if ((Number(req.params.id) !== parseInt(req.params.id, 10))
     || (Math.sign(req.params.id) === -1)) {
-      return res.status(401).json({ status: 'Failed', message: 'Given ID is not a number' });
+      return res.status(401).json({ status: 'Failed', message: 'Given ID is not valid' });
     }
 
     const date = new Date();
@@ -84,7 +84,7 @@ class Entries {
   static async getOneEntry(req, res) {
     if ((Number(req.params.id) !== parseInt(req.params.id, 10))
     || (Math.sign(req.params.id) === -1)) {
-      return res.status(401).json({ status: 'Failed', message: 'Given ID is not a number' });
+      return res.status(401).json({ status: 'Failed', message: 'Given ID is not valid' });
     }
 
     const myId = req.decodeUser.id;
@@ -107,7 +107,7 @@ class Entries {
   static async removeAnEntry(req, res) {
     if ((Number(req.params.id) !== parseInt(req.params.id, 10))
     || (Math.sign(req.params.id) === -1)) {
-      return res.status(401).json({ status: 'Failed', message: 'Given ID is not a number' });
+      return res.status(401).json({ status: 'Failed', message: 'Given ID is not valid' });
     }
 
     const myId = req.decodeUser.id;
