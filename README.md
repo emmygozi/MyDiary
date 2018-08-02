@@ -3,11 +3,21 @@
 
 MyDiary is an online journal where users can pen down their thoughts and feelings
 
+## API Documentation
+API documentation is hosted at https://mysterious-hamlet-72841.herokuapp.com/api-docs/
+
+## API 
+API is deployed at  https://mysterious-hamlet-72841.herokuapp.com/api/v1/
+
+## Frontend 
+Frontend is deployed at  https://mysterious-hamlet-72841.herokuapp.com/
+
+## Registered user
+Registered user is signed in to https://mysterious-hamlet-72841.herokuapp.com/myindex
+
 ## Template
 Template hosted at https://emmygozi.github.io/MyDiary/UI/
 
-## API 
-API is deployed at  https://mysterious-hamlet-72841.herokuapp.com/api/v1/entries
 
 ## Table of Contents
 
