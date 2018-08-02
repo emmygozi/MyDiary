@@ -28,3 +28,58 @@
   label: 'Route Error!',
   timestamp: '2018-07-27T19:22:44.947Z',
   [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\index.html\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T17:17:02.195Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'path must be absolute or specify root to res.sendFile\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:43:36.276Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\index.html\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:44:40.389Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\css\\style.css\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:47:00.976Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\css\\mobileview.css\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:47:01.084Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\js\\mobileview.js\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:47:01.114Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\css\\mobileview.css\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:47:02.329Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\js\\mobileview.js\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:47:02.368Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\css\\style.css\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:47:09.095Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\css\\mobileview.css\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:47:09.158Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'ENOENT: no such file or directory, stat \'C:\\js\\mobileview.js\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-01T20:47:09.195Z',
+  [Symbol(level)]: 'error' }
