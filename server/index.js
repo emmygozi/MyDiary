@@ -3,12 +3,18 @@ import logger from 'morgan';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import cors from 'cors';
+import swaggerExpress from 'swagger-ui-express';
+import yamljs from 'yamljs';
 import routes from './routes/index';
 import error from './middlewares/routeErrors';
 import frontEnd from './routes/frontEnd/index';
 
 
 const app = express();
+
+
+const documentation = yamljs.load(`${process.cwd()}/server/swagger.yaml`);
+app.use('/api-docs', swaggerExpress.serve, swaggerExpress.setup(documentation));
 
 app.use(logger('dev'));
 
