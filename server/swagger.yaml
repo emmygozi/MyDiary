@@ -1,0 +1,263 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: MyDiary
+  description: MyDiary Documentation
+  # My Contact Info
+  contact:
+    email: ahaiweemmanuel@gmail.com
+basePath: /api/v1
+
+securityDefinitions:
+  x-auth-token:
+    name: x-auth-token
+    in: header
+
+# tags are used for organizing operations
+tags:
+- name: x-auth-token
+  description: storing encrypted user details
+- name: user
+  description: signup and login
+- name: entries
+  description: Operations for entries
+
+paths:
+  /auth/login:
+    post:
+      tags:
+        - x-auth-token
+      summary: login a users
+      description: Log in a user to the application
+      produces:
+      - application/json
+      parameters:
+      - name: email
+        in: formData
+        description: user email
+        type: email
+        required: true
+      - name: mypassword
+        in: formData
+        description: user password
+        type: password
+        required: true
+      responses:
+        200: 
+          description: User is logged in sucessfully
+          examples:
+            application/json:
+              status: successful
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ5LCJpYXQiOjE1MzMxMzkxOTcsImV4cCI6MTUzMzIyNTU5N30.OKx5ezcJEp7JU3IrNTnmC5uNxJpoDBbTFWH2SHlX13Q
+              user:
+                email: fetch10@mail.com
+        400:
+          description: Invalid Input
+          examples:
+            application/json:
+              message: Invalid email or password
+
+  /auth/signup:
+    post:
+      tags:
+      - x-auth-token
+      summary: User signup
+      description: Signup a new user into the app
+      produces:
+      - application/json
+      parameters:
+      - name: email
+        in: formData
+        description: email of user
+        type: email
+        required: true
+      - name: mypassword
+        in: formData
+        description: password of user
+        type: password
+        required: true
+
+      responses:
+        201:
+          description: User is successfully signed up
+          examples:
+            application/json:
+              status: successful
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ5LCJpYXQiOjE1MzMxMzkxOTcsImV4cCI6MTUzMzIyNTU5N30.OKx5ezcJEp7JU3IrNTnmC5uNxJpoDBbTFWH2SHlX13Q
+              user:
+                email: fetch10@mail.com
+        409:
+          description: User already registered
+          examples:
+            application/json:
+              message: User already registered
+
+
+  /entries:
+    get:
+      tags:
+      - entries
+      summary: Get all entries by user
+      description: Shows all entries for a logged in user
+      security: 
+      - x-auth-token
+      produces:
+      - application/json
+      responses:
+        200:
+          description: A list of all entries by a users
+          examples:
+            application/json:
+              status: successfull
+              entries:
+                - id: 2
+                  title: Updated2 now test user1 title
+                  category: Life
+                  message: This2 now qwerty is our updated entry message that we are using for this diap
+                  user_id: 1
+                  date_added: 2018-08-01 10:07:18 +0000
+
+    post:
+      tags:
+      - entries
+      summary: Add an entry
+      description: Add a new diary entry
+      security:
+      - - x-auth-token
+      produces:
+      - application/json
+      parameters:
+      - in: formData
+        name: title
+        type: string
+        description: Name of entry
+        required: true
+      - in: formData
+        name: category
+        type: string
+        message: entry category
+        required: true
+      - in: formData
+      responses:
+        201:
+          description: Entry saved successfully
+          examples:
+            application/json:
+              status: success
+              entry:
+                id: 2
+                  title: Updated2 now test user1 title
+                  category: Life
+                  message: This2 now qwerty is our updated entry message that we are using for this diap
+                  user_id: 1
+                  date_added: 2018-08-01 10:07:18 +0000
+        400: 
+          description: Invalid input
+          examples:
+            application/json:
+              error: error
+             
+
+  /entries/{id}:
+    put:
+      tags:
+      - entries
+      summary: update a specific entry
+      security:
+      - x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: formData
+        name: title
+        type: string
+        description: Name of entry
+        required: true
+      - in: formData
+        name: category
+        type: string
+        message: entry category
+        required: true
+      - in: formData
+      responses:
+        200:
+          description: Updated entry successfully
+          examples:
+            application/json:
+            status: successfull
+            message: Entry updated successfully updated
+            entry:
+                id: 2
+                  title: Updated2 now test user1 title
+                  category: Life
+                  message: This2 now qwerty is our updated entry message that we are using for this diap
+                  user_id: 1
+                  date_added: 2018-08-01 10:07:18 +0000
+        404: 
+          description: Entry not found
+          examples:
+            application/json:
+              status: failed
+              message: Given ID does not exist
+    delete:
+      tags:
+      - entries
+      summary: Delete an entry
+      security:
+      x-auth-token: token
+      produces: 
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: id of the entry to delete
+        type: integer
+      responses:
+        200:
+          description: Entry deleted
+          examples:
+            application/json:
+              status: successfull
+              message: Entry is deleted!
+        404:
+          description: Entry could not be found
+          examples: 
+            application/json:
+              status: Failed
+              message: Given ID does not exist
+    get:
+      tags:
+      - entries
+      summary: Get an entry
+      description: Gets a single entry
+      security:
+      x-auth-token: token
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: id of the entry
+        type: integer
+      responses:
+        200:
+          description: View an entry
+          examples:
+            application/json:
+              status: successfull
+              message: Sucess getting one entry!
+              entry:
+                id: 2
+                  title: Updated2 now test user1 title
+                  category: Life
+                  message: This2 now qwerty is our updated entry message that we are using for this diap
+                  user_id: 1
+                  date_added: 2018-08-01 10:07:18 +0000
+        404:
+          description: Entry could not be found
+          examples: 
+            application/json:
+              status: Failed
+              message: Entry does not exist
