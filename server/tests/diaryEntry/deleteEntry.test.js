@@ -40,7 +40,7 @@ describe('DELETE /:ID', () => {
 
   it('should return a failure status 404 if ID is not found', async () => {
     try {
-      urlId = 1000000;
+      urlId = 1948;
 
       const res = await exec();
       expect(res.status).to.equal(404);
