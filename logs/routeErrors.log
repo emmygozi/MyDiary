@@ -83,3 +83,13 @@
   label: 'Route Error!',
   timestamp: '2018-08-01T20:47:09.195Z',
   [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'Failed to decode param \'%\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-02T09:32:33.274Z',
+  [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'Failed to decode param \'%\'\n    You have an error!\n    Please check your work and fix this.',
+  label: 'Route Error!',
+  timestamp: '2018-08-02T09:33:39.887Z',
+  [Symbol(level)]: 'error' }
