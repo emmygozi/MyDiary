@@ -27,11 +27,11 @@ describe('DELETE /:ID', () => {
     urlId = 1;
   });
 
-  it('should return a failure status 400 is not a number', async () => {
+  it('should return a failure status 401 is not a number', async () => {
     try {
       urlId = 'd';
       const res = await exec();
-      expect(res.status).to.equal(400);
+      expect(res.status).to.equal(401);
     } catch (err) {
       throw err.message;
     }
@@ -40,7 +40,7 @@ describe('DELETE /:ID', () => {
 
   it('should return a failure status 404 if ID is not found', async () => {
     try {
-      urlId = 1000000;
+      urlId = 1948;
 
       const res = await exec();
       expect(res.status).to.equal(404);

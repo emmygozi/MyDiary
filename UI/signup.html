@@ -60,23 +60,23 @@
 
         <div class="home">
 
-            <form >
+            <form name="signupForm" id="signupForm">
                 <div class="formcontainer">
                     <h2 style="margin-top: -4.5em;" id="getUser">Register</h2>
                     <label for="myname">
                         <b>Name</b>
                     </label>
-                    <input type="text" placeholder="Enter Full Name" name="myname"  required>
+                    <input type="text" placeholder="Enter Full Name" name="mynameSignup"  required>
 
                     <label for="email1">
                         <b>Email</b>
                     </label>
-                    <input type="email" placeholder="Enter Email" name="email2" required>
+                    <input type="email" placeholder="Enter Email" name="emailSignup" required>
 
                     <label for="pass1">
                         <b>Password</b>
                     </label>
-                    <input type="password" placeholder="Enter Password" name="pass1" id="pas1" required>
+                    <input type="password" placeholder="Enter Password" name="passSignup" id="pas1" required>
                     <div id="matchP"></div>
                     <label for="pwrd-repeat">
                         <b>Confirm Password</b>
@@ -101,6 +101,6 @@
     manipulate("pas1", "pas2", "submitid", "matchP");
 
 </script>
-
+<script src="js/fetchApi/signup.js"></script>
 
 </html>
