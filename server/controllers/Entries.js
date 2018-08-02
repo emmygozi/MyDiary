@@ -84,7 +84,7 @@ class Entries {
   static async getOneEntry(req, res) {
     if ((Number(req.params.id) !== parseInt(req.params.id, 10))
     || (Math.sign(req.params.id) === -1)) {
-      return res.status(400).json({ status: 'Failed', message: 'Given ID is not a number' });
+      return res.status(401).json({ status: 'Failed', message: 'Given ID is not a number' });
     }
 
     const myId = req.decodeUser.id;
@@ -107,7 +107,7 @@ class Entries {
   static async removeAnEntry(req, res) {
     if ((Number(req.params.id) !== parseInt(req.params.id, 10))
     || (Math.sign(req.params.id) === -1)) {
-      return res.status(400).json({ status: 'Failed', message: 'Given ID is not a number' });
+      return res.status(401).json({ status: 'Failed', message: 'Given ID is not a number' });
     }
 
     const myId = req.decodeUser.id;
