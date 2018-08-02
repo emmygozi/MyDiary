@@ -11,6 +11,7 @@
     "**/__tests__/**",
     "**/node_modules/**",
     "./server/middlewares/routeErrors.js",
+    "./server/routes/frontEnd",
     "./UI"
   ],
   "watermarks": {

@@ -58,7 +58,7 @@
 
         <div class="home">
 
-            <form >
+            <form name="myLoginForm">
 
                 <div class="formcontainer">
                     <h1 class="centerheading">Login</h1>
@@ -67,16 +67,16 @@
                     <label for="email2">
                         <b>Email</b>
                     </label>
-                    <input type="email" placeholder="Enter Email" name="email2" required>
+                    <input type="email" id="maile" placeholder="Enter Email" name="email2" required>
 
                     <label for="pass2">
                         <b>Password</b>
                     </label>
-                    <input type="password" placeholder="Enter Password" name="pass2" required>
+                    <input type="password" id="pass1" placeholder="Enter Password" name="pass2" required>
 
                     <hr>
 
-                    <button type="submit" class="myregisterbtn">Login</button>
+                    <button id="canSubmit" type="submit" class="myregisterbtn">Login</button>
                 </div>
 
             </form>
@@ -88,6 +88,7 @@
 
 <script>
     hamburger();
+    
 </script>
 
 </html>
