@@ -22,12 +22,12 @@ describe('GET /:ID', () => {
     }
   });
 
-  it('should return a failure status of 400', async () => {
+  it('should return a failure status of 401', async () => {
     try {
       const res = await chai.request(app)
         .get('/api/v1/entries/a')
         .set('x-auth-token', genrateAuthToken(uniqueId));
-      expect(res.status).to.equal(400);
+      expect(res.status).to.equal(401);
     } catch (err) {
       throw err.message;
     }
