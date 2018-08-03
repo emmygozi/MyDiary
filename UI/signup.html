@@ -57,6 +57,7 @@
 
 
     <div class="content">
+        <p id="myText"></p>
 
         <div class="home">
 
@@ -83,7 +84,7 @@
                     </label>
                     <input type="password" placeholder="Confirm Password" name="pwrd-repeat" id="pas2" required>
 
-                    <button type="submit" id="submitid" disabled class="myregisterbtn">Register</button>
+                    <button type="submit" id="submitid" class="myregisterbtn">Register</button>
                 </div>
 
             </form>
@@ -95,10 +96,13 @@
 
 <script>
 
-    hamburger();
+     hamburger();
 
 
-    manipulate("pas1", "pas2", "submitid", "matchP");
+    // manipulate("pas1", "pas2", "submitid", "matchP");
+    
+
+
 
 </script>
 <script src="js/fetchApi/signup.js"></script>

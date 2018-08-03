@@ -21,7 +21,7 @@ const dbInstance = promisedConnection(config.get('db'));
 class User {
   static async signup(req, res) {
     const { error } = validateUserSignup(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).send({ message: 'Your input text is too short', status: error.details[0].message });
     const {
       name, email, mypassword
     } = req.body;

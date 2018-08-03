@@ -11,4 +11,9 @@ router.get('/js/passwordvalidation.js', (req, res) => {
   res.sendFile('/js/passwordvalidation.js', { root });
 });
 
+router.get('/js/fetchapi/signup.js', (req, res) => {
+  res.sendFile('/js/fetchapi/signup.js', { root });
+});
+
+
 export default router;
